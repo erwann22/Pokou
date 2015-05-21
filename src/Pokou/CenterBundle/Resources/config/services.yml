@@ -1,0 +1,7 @@
+parameters:
+#    pokou_center.example.class: Pokou\CenterBundle\Example
+
+services:
+#    pokou_center.example:
+#        class: %pokou_center.example.class%
+#        arguments: [@service_id, "plain_value", %parameter%]

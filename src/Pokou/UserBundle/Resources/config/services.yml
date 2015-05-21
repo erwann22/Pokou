@@ -1,0 +1,7 @@
+parameters:
+#    pokou_user.example.class: Pokou\UserBundle\Example
+
+services:
+#    pokou_user.example:
+#        class: %pokou_user.example.class%
+#        arguments: [@service_id, "plain_value", %parameter%]

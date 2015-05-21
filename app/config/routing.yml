@@ -1,0 +1,12 @@
+pokou_user:
+    resource: "@PokouUserBundle/Resources/config/routing.yml"
+    prefix:   /
+
+pokou_admin:
+    resource: "@PokouAdminBundle/Resources/config/routing.yml"
+    prefix:   /
+
+pokou_center:
+    resource: "@PokouCenterBundle/Resources/config/routing.yml"
+    prefix:   /
+
