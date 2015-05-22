@@ -1,3 +1,7 @@
 pokou_center_homepage:
     pattern:  /hello/{name}
     defaults: { _controller: PokouCenterBundle:Default:index }
+
+accueil:
+    pattern: /Accueil
+    defaults: { _controller: PokouCenterBundle:Center:index }
