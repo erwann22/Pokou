@@ -3,6 +3,11 @@
 {% extends "PokouCenterBundle::layout.html.twig" %}
 
 {% block article %}
-    <h1>Page d'accueil</h1>
-    <p>Construction HTML de la page d'accueil</p>
-{% endblock %}
+    <h1>PokoùCenter</h1>
+    {% if is_granted('ROLE_USER') %}
+        <p>Vous êtes bien connecté</p>
+    {% else %}
+    <p>Un compte utilisateur est requis pour ce site, veuillez vous connecter ou vous inscrire à l'aide des liens disponibles dans la colonne de droite.</p>
+    {% endif %}
+    {% endblock %}
+

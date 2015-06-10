@@ -1,0 +1,52 @@
+{% extends "::base.html.twig" %}
+
+{% block article %}
+    <h1>Configuration de l'application</h1>
+    <form method='post' action='{{ path('validation_parametres') }}'>
+        <label for='nom'>Nom de l'association :</label>
+        <input type='text' name='nom' id='nom' {% if config is defined %}value="{{ config.nom }}" />{% endif %}<br />
+        <br />
+        <label for='description'>Description de son activité :</label>
+        <input type='text' name='description' id='description'  {% if config is defined %}value="{{ config.description }}"/>{% endif %}<br/>
+        <br />
+        <label for='tva'>Est-elle assujétie à la TVA ? :</label><br/>
+        <input type='radio' name='tva' value='oui' id='oui' /><label for='oui'>Oui</label>
+        <input type='radio' name='tva' value='non' id='non' /><label for='non'>Non</label><br/>
+        <br />
+        <label for='siret'>Numéro de Siret de l'association :</label>
+        <input type='text' name='siret' id='siret'  {% if config is defined %}value="{{ config.siret }}"/>{% endif %}<br />
+        <br />
+        <label for='adress'>Adresse de l'association :</label>
+        <input type='text' name='adress' id='adress'  {% if config is defined %}value="{{ config.adress }}"/>{% endif %}<br />
+        <br />
+        <label for='postal'>Code postal :</label>
+        <input type='text' name='postal' id='postal'  {% if config is defined %}value="{{ config.postal }}"/>{% endif %}<br />
+        <br />
+        <label for='ville'>Ville :</label>
+        <input type='text' name='ville' id='ville'  {% if config is defined %}value="{{ config.ville }}"/>{% endif %}<br />
+        <br />
+        <label for='phone1'>Numéro de téléphone :</label>
+        <input type='text' name='phone1' id='phone1'  {% if config is defined %}value="{{ config.phone1 }}"/>{% endif %}<br />
+        <br />
+        <label for='phone2'>Numéro secondaire :</label>
+        <input type='text' name='phone2' id='phone2'  {% if config is defined %}value="{{ config.phone2 }}"/>{% endif %}<br />
+        <br />
+        <label for='email'>Mail de l'association :</label>
+        <input type='text' name='email' id='email'  {% if config is defined %}value="{{ config.email }}"/>{% endif %}<br />
+        <br />
+        <label for='web'>Site Web de l'association :</label>
+        <input type='text' name='web' id='web'  {% if config is defined %}value="{{ config.web }}"/>{% endif %}<br />
+        <br />
+        <label for='fb'>Facebook :</label>
+        <input type='text' name='fb' id='fb'  {% if config is defined %}value="{{ config.fb }}"/>{% endif %}<br />
+        <br />
+        <label for='twitter'>Twitter :</label>
+        <input type='text' name='twitter' id='twitter'  {% if config is defined %}value="{{ config.twitter }}"/>{% endif %}<br />
+        <br />
+        <label for='gplus'>Google+ :</label>
+        <input type='text' name='gplus' id='gplus'  {% if config is defined %}value="{{ config.gplus }}"/>{% endif %}<br />
+        <br />
+        <input type='submit' value='Valider' />
+        
+    </form>
+{% endblock %}

@@ -1,0 +1,31 @@
+
+
+    {% block javascript %}
+    <script src="http://code.jquery.com/jquery-latest.min.js" type="text/javascript"></script>
+   <script src="script.js"></script>
+{% endblock %}
+{% block menu %}
+    <div id="cssmenu">
+    <ul>
+        <li class="active"><a href="Accueil"><span>Administration</span></a></li>
+        <li class="has-sub"><a href="{{ path('utilisateurs') }}"><span>Gestion des utilisateurs</span></a>
+            <ul>
+                <li><a href="{{ path('ajout_user') }}"><span>Ajouter un utilisateur</span></a></li>
+                <li><a href="ModifUser"><span>Modifier un utilisateur</span></a></li>
+                <li class="last"><a href="SuppUser"><span>Supprimer un utilisateur</span></a></li>
+            </ul>
+            </li>
+            <li class="has-sub"><a href="Services"><span>Gestion des services</span></a>
+                <ul>
+                    <li><a href='AjoutCategorie'>Ajouter une catégorie</a></li>
+                    <li><a href='ListeCategories'>Lister les catégories</a></li>
+                </ul>
+            </li>
+            <li class="has-sub"><a href="{{ path('pokous') }}"><span>Gestion des Pokoùs</span></a></li>
+            <li class="has-sub"><a href='Configuration'><span>Gestion de l'application</span></a>
+                <ul><li><a href="Tva"><span>TVA</span></a></li></ul>
+            </li>
+    </ul>
+    </div>
+
+{% endblock %}

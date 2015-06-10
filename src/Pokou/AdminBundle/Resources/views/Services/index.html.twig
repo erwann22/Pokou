@@ -1,0 +1,12 @@
+{% extends "::base.html.twig" %}
+
+{% block article %}
+    <h1>Liste des service proposés</h1>
+    {% for service in services %}
+        {% if service == null %}Aucun service{% endif %}
+        {{ service.nom }}<br />
+    {% endfor %}
+    <form method='post' action='AjoutService'>
+        <input type='submit' value='Ajouter un service' />
+    </form>
+{% endblock %}

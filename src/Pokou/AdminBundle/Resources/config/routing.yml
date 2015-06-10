@@ -1,3 +1,102 @@
 pokou_admin_homepage:
     pattern:  /hello/{name}
     defaults: { _controller: PokouAdminBundle:Default:index }
+    
+ajout_super:
+    pattern:    /SuperAdmin
+    defaults: { _controller: PokouAdminBundle:Configuration:super }
+
+utilisateurs:
+    pattern: /Utilisateurs
+    defaults: { _controller: PokouAdminBundle:Users:index }
+    
+modif_user:
+    pattern: /ModifUser
+    defaults: { _controller: PokouAdminBundle:Users:modif }
+    
+edit_user:
+    pattern: /EditUser
+    defaults: { _controller: PokouAdminBundle:Users:edit }
+    
+select_user:
+    pattern: /SelectUser
+    defaults: { _controller: PokouAdminBundle:Users:select }
+    
+retro_admin:
+    pattern: /RetroAdmin/{slug}
+    defaults: { _controller: PokouAdminBundle:Users:retroadmin }
+    
+retro_user:
+    pattern: /RetroUser/{slug}
+    defaults: { _controller: PokouAdminBundle:Users:retrouser }
+    
+ajout_user:
+    pattern: /AjoutUser
+    defaults: { _controller: PokouAdminBundle:Users:ajout }
+    
+ajouter:
+    pattern: /Ajouter
+    defaults: { _controller: PokouAdminBundle:Users:ajouter }
+    
+promo_admin:
+    pattern: /PromoAdmin/{slug}
+    defaults: { _controller: PokouAdminBundle:Users:promoadmin }
+    
+promo_super:
+    pattern: /PromoSuper/{slug}
+    defaults: { _controller: PokouAdminBundle:Users:promosuper }
+init_config:
+    pattern: /InitConfig
+    defaults: { _controller: PokouAdminBundle:Configuration:init }
+    
+configuration:
+    pattern: /Configuration
+    defaults: { _controller: PokouAdminBundle:Configuration:index }
+    
+editer_config:
+    pattern: /EditerConfig
+    defaults: { _controller: PokouAdminBundle:Configuration:editer } 
+    
+validation_parametres:
+    pattern: /ValidationParametres
+    defaults: { _controller: PokouAdminBundle:Configuration:edit }
+    
+tva:
+    pattern: /Tva
+    defaults: { _controller: PokouAdminBundle:Configuration:tva }
+    
+modif_tva:
+    pattern: /ModifTva
+    defaults: { _controller: PokouAdminBundle:Configuration:modiftva }
+    
+init_tva:
+    pattern: /InitTva
+    defaults: { _controller: PokouAdminBundle:Configuration:inittva }
+    
+services:
+    pattern: /Services
+    defaults: { _controller: PokouAdminBundle:Services:index }
+    
+ajout_service:
+    pattern: /AjoutService
+    defaults: { _controller: PokouAdminBundle:Services:ajout }
+    
+valid_service:
+    pattern: /ValidService
+    defaults: { _controller: PokouAdminBundle:Services:valid }
+    
+liste_categories:
+    pattern: /ListeCategories
+    defaults: { _controller: PokouAdminBundle:Services:listecat }
+    
+ajout_categorie:
+    pattern: /AjoutCategorie
+    defaults: { _controller: PokouAdminBundle:Services:ajoutcat }
+    
+valid_cat:
+    pattern: /ValidCat
+    defaults: { _controller: PokouAdminBundle:Services:validcat }
+    
+pokous:
+    pattern: /Pokous
+    defaults: { _controller: PokouAdminBundle:Pokou:index }

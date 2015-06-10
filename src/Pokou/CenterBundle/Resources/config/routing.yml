@@ -2,6 +2,18 @@ pokou_center_homepage:
     pattern:  /hello/{name}
     defaults: { _controller: PokouCenterBundle:Default:index }
 
+racine:
+    pattern: /
+    defaults: { _controller: PokouCenterBundle:Center:index }
+
 accueil:
     pattern: /Accueil
     defaults: { _controller: PokouCenterBundle:Center:index }
+    
+init_super:
+    pattern: /InitSuper
+    defaults: { _controller: PokouAdminBundle:Users:initsuper }
+    
+valid_super:
+    pattern: /ValidSuper
+    defaults: { _controller: PokouAdminBundle:Users:validsuper }

@@ -1,0 +1,30 @@
+{% extends "::base.html.twig" %}
+
+{% block article %}
+    <h1>Liste des utilisateurs</h1>
+    <h2>SUPER_ADMIN</h2>
+    {% for super in users %}
+        {% for role in super.roles %}
+            {% if role == 'ROLE_SUPER_ADMIN' %}
+                {{ super.username }} <a href="RetroAdmin/{{ super.id }}">Rétrograder</a><br />
+            {% endif %}
+        {% endfor %}
+    {% endfor %}
+    <h2>ADMIN</h2>
+    {% for admin in users %}
+        {% for role in admin.roles %}
+            {% if role == 'ROLE_ADMIN' and role != 'ROLE_SUPER_ADMIN' %}
+                
+                {{ admin.username }}<a href="RetroUser/{{ admin.id }}">Rétrograder</a><br />
+            {% endif %}
+        {% endfor %}
+    {% endfor %}
+    <h2>USER</h2>
+    {% for user in users %}
+        {% for role in user.roles %}
+            {% if role == 'ROLE_ADMIN' %}
+                {{ user.username }}<br />
+            {% endif %}
+        {% endfor %}
+    {% endfor %}
+{% endblock %}

@@ -1,0 +1,10 @@
+{% extends "::base.html.twig" %}
+
+{% block article %}
+    <h3>Modification de l'utilisateur {{ username }}</h3>
+    <form method="post" name="edit_user" action="EditUser">
+        <label for="username">Login :</label><input type="text" name="username" id="username" Value="{{ username }}" />
+
+        <input type="submit" value="Valider" />
+    </form>
+{% endblock %}

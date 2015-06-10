@@ -1,0 +1,18 @@
+{% extends "::base.html.twig" %}
+
+{% block article %}
+    <h1>Ajout de service</h1>
+    <form method='post' action='ValidService'>
+        <label for='nom'>Nom du service :</label>
+        <input type='text' id='nom' name='nom' /><br />
+        <label for='description'>Décrivez le service :</label>
+        <input type='text' id='description' name='description' /><br />
+        <label for='categories'>Catégories du service</label>
+        <select id='categories' name='categories' multiple>
+            {% for categorie in categories %}
+                <option value='{{ categorie.nom }}'>{{ categorie.nom }}</option>
+            {% endfor %}
+        </select> 
+<input type='submit' value='Enregistrer le service' />
+    </form>
+{% endblock %}

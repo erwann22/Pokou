@@ -2,4 +2,10 @@
 
 {% extends "::base.html.twig" %}
 
-{% block connexion %}{% include 'PokouCenterBundle:Center:connexion.html.twig' %}{% endblock %}
+{% block connexion %}
+    {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
+        <p>Bonjour <b>{{ app.user.username }}</b> - <a href="{{ path('fos_user_security_logout') }}">Déconnexion</a></p>
+    {% else %}
+        <a href="{{ path('fos_user_security_login') }}">Connexion</a> | <a href="{{ path('fos_user_registration_register') }}">Inscription</a>
+    {% endif %}
+{% endblock %}

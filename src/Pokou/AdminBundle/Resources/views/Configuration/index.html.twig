@@ -1,0 +1,22 @@
+{% extends "::base.html.twig" %}
+
+{% block article %}
+    <h1>La structure <form method="post" action="EditerConfig"><input type="submit" value="Modifier" /></form></h1>
+        Nom de l'association : {% if config is defined %}{{ config.nom }}{% endif %}<br />
+        Description : {% if config is defined %}{{ config.description }}{% endif %}<br />
+        Assujétie à la TVA : <form method='post' action='ModifTva'>
+            {% if config is defined %}{% if config.tva == true %}Oui{% else %}Non{% endif %}{% endif %}
+            <input type='submit' value='Changer' />
+        </form><br />
+        Numéro de Siret : {% if config is defined %}{{ config.siret }}{% endif %}<br />
+        Adresse : {% if config is defined %}{{ config.adress }}{% endif %}<br />
+        Code postal : {% if config is defined %}{{ config.postal }}{% endif %}<br />
+        Ville : {% if config is defined %}{{ config.ville }}{% endif %}<br />
+        Numéro de téléphone : {% if config is defined %}{{ config.phone1 }}{% endif %}<br />
+        Télephone secondaire : {% if config is defined %}{{ config.phone2 }}{% endif %}<br />
+        Email : {% if config is defined %}{{ config.email }}{% endif %}<br />
+        Site web : {% if config is defined %}{{ config.web }}{% endif %}<br />
+        Facebook : {% if config is defined %}{{ config.fb }}{% endif %}<br /> 
+        Twitter : {% if config is defined %}{{ config.twitter }}{% endif %}<br />
+        Google+ : {% if config is defined %}{{ config.gplus }}{% endif %}<br />
+{% endblock %}

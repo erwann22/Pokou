@@ -1,0 +1,15 @@
+{# empty Twig template #}
+
+{% extends "::base.html.twig" %}
+
+{% block article %}
+    <h1>Page d'inscription</h1>
+    <form action='inscriptuser' method='post'>
+        <label for='username'>Login :</label><input type='text' id='username' name='_username'/><br/>
+        <label for='password'>Mot de passe :</label><input type='password' id='password' name='_password'/><input type='submit' value="Valider"/></form>
+
+{% endblock %}    
+    
+{% block connexion %}
+    <p>Vous n'êts actuellement non connecté !</p>
+{% endblock %}

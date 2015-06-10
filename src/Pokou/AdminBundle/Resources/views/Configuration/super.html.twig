@@ -1,0 +1,12 @@
+{% extends "::base.html.twig" %}
+
+{% block article %}
+    <h1>Configuration de l'application</h1>
+    <h3>Vous êtes le Super Administrateur des Pokoùs !!!</h3>
+    <p>Pour commencer la configuration, les Pokoùs ont besoins de vous connaitre.</p>
+    <p>Le compte utilisateur que vous allez créer aura tous les privilèges sur l'application, prenez bien soin de noter les identifiants de connexion.</p>
+    <p>Créons donc le compte du Super-Pokeur :</p>
+    <form method="post" action="{{ path('init_config') }}">
+        <input type="submit" value="Continuer" />
+    </form>
+{% endblock %}

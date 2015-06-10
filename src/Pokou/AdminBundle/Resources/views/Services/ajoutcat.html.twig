@@ -1,0 +1,14 @@
+{% extends "::base.html.twig" %}
+
+{% block article %}
+    <h1>Ajout de catégorie</h1>
+    <form method='post' action='ValidCat'>
+        <label for='nom'>Nom de la catégorie :</label>
+            <input type='text' id='nom' name='nom' /><br />
+            
+        <label for='description'>Décrivez la catégorie :</label>
+            <input type='text' id='description' name='description' /><br />
+            
+        <input type='submit' value='Ajouter la catégorie' /><br />
+    </form>
+{% endblock %}

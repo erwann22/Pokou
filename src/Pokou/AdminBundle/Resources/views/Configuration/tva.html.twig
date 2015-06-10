@@ -1,0 +1,37 @@
+{% extends "::base.html.twig" %}
+
+{% block article %}
+    <h1>Gestion de la TVA</h1>
+    {% if tva == null %}
+        <p>Votre association n'est pas assujétie à la TVA. Pour changer ce paramètre, cliquez sur le bouton à cet effet.</p>
+        <form method='post' action='ModifTva'>
+            <input type='submit' value='Changer' />
+        </form>
+    {% else %}
+        <p>L'association est assujétie à la TVA. Pour changer ce paramètre, cliquez sur le bouton à cet effet.</p>
+        <form method='post' action='ModifTva'>
+            <input type='submit' value='Changer' />
+        </form>
+        {% if taux == null %}
+            <p>Voulez-vous initialiser les taux de TVA par défaut* ?</p>
+            <p>* ces taux pourront être modifiés par la suite.</p>
+            <form method='post' action='InitTva'>
+                <input type='submit' value='Initialiser' />
+            </form>
+        {% else %}
+            <h2>Liste des taux en vigueur</h2>
+            <table class='tabusers'>
+                <tr>
+                    {% for tva in taux %}
+                        <th>{{ tva.id }}</th>
+                    {% endfor %}
+                </tr>
+                <tr>
+                    {% for tva in taux %}
+                        <td>{{ tva.taux }}</td>
+                    {% endfor %}
+                </tr>
+            </table>
+        {% endif %}
+    {% endif %}    
+{% endblock %}

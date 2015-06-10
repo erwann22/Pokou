@@ -3,6 +3,8 @@
 namespace Pokou\UserBundle\Entity;
 
 use Doctrine\ORM\EntityRepository;
+use Doctrine\Common\Persistence\ObjectManager;
+use Symfony\Component\Security\Core\User\UserProviderInterface;
 
 /**
  * UserRepository
@@ -12,4 +14,71 @@ use Doctrine\ORM\EntityRepository;
  */
 class UserRepository extends EntityRepository
 {
+    // Récupération de la liste des utilisateurs
+    public function listeUsers() {
+        $repository = $this->getDoctrine()->getManager()->getRepository('PokouUserBundle:User');
+        $listeUsers = $repository->findAll();
+        return $listeUsers;
+    }
+    public function connexion($username) {
+        $connexion = UserProviderInterface::loadUserByUsername($username);
+        return $connexion;
+    }
+    public function load(ObjectManager $manager)
+    {
+        $user = new User;
+        $user->setUsername($_POST['_username']);
+        $user->setPassword($_POST['_password']);
+        $user->setSalt('');
+        $user->setRoles(array('ROLE_USER'));
+        $manager->persist($user);
+        $manager->flush();
+    }
+    
+    // Récupère le SUPER_ADMIN
+    public function selectSuper() {
+        $repository = $this->getDoctrine()->getManager()->getRepository('PokouUserBundle:User');
+        $users = $repository->findAll();
+        // Si aucuns utilisateurs présents
+        if (isset($users)) {
+            
+            $super = null;
+        }
+        // Si aucun SUPER_ADMIN
+        foreach ($users as $user) {
+            // Test sur les rôles
+            foreach ($user->getRoles() as $role) { 
+                if ($role == "ROLE_SUPER_ADMIN") {
+                    $super = $user;
+                } else {
+                    $em = $this->getDoctrine()->getManager();
+                    $user->setRoles(array('ROLE_USER', 'ROLE_ADMIN', 'ROLE_SUPER_ADMIN'));
+                    $em->persist($user);
+                    $em->flush();
+                    $super = $user;
+                }
+        }
+    } 
+        return $super;
+    }
+    
+    // Initialise les rôles
+    public function initSuper() {
+        $users = UserRepository::listeUsers();
+        foreach($users as $user) {
+            $em = $this->getDoctrine()->getManager();
+            $user->setRoles(array('ROLE_USER', 'ROLE_ADMIN', 'ROLE_SUPER_ADMIN'));
+            $em->persist($user);
+            $em->flush();
+            return $user;
+        }
+    }
+    
+    // Promotion de ROLE
+    public function promotion() {
+        $users = UserRepository::listeUsers();
+        foreach ($users as $user) {
+            
+        }
+    }
 }

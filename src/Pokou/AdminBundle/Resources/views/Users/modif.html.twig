@@ -1,0 +1,18 @@
+{% extends "::base.html.twig" %}
+
+{% block article %}
+    <h1>Veuillez sélectionner un utilisateur à administrer.</h1>
+    <p>
+    <form method="post" action="SelectUser">
+        <select name="user">
+            {% for user in users %}
+                <option name="{{ user.username }}">{{ user.username }}</option>
+                {% for role in user.roles %}
+                    {{ role }}
+                {% endfor %}
+            {% endfor %}
+            <input type="submit" value="Valider" />
+        </select>
+    </form>
+    </p>    
+{% endblock %}
